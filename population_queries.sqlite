@@ -1,0 +1,28 @@
+-- This is the first query:
+/*Years covered by the dataset*/
+SELECT DISTINCT year from population_years;
+
+/*Find the largest population size for Gabon*/
+SELECT country, population, year from population_years
+where country = 'Gabon' Order by population DESC;
+
+/*10 lowest population countries in 2005*/
+select * from population_years
+where year = 2005
+order by population asc
+limit 10;
+
+/*Countries with over 100M population in 2010 */
+select * from population_years
+where year = 2010 and population > 100; 
+
+/*Countries containing 'Islands' in their names*/
+select distinct country from population_years
+where country LIKE '%Islands%';
+
+/*Population of Indonesia from 2000 to 2010*/
+select * from population_years
+where country = 'Indonesia' and 
+year between 2000 and 2010;
+
+
